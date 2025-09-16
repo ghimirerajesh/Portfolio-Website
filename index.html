@@ -1,187 +1,485 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal portfolio of Rajesh Ghimire, a BBS student, PSC aspirant, and creative enthusiast skilled in vlogging, blogging, AI, programming, and dancing.">
-    <meta name="keywords" content="Rajesh Ghimire, portfolio, BBS student, PSC Nepal, vlogging, programming, AI, dancing">
-    <meta name="author" content="Rajesh Ghimire">
-    <title>Rajesh Ghimire - Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Rajesh Ghimire - Professional Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #e0e7ff, #f3f4f6);
-            color: #1f2937;
+        * {
             margin: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            padding: 0;
+            box-sizing: border-box;
         }
-
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
         header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-
-        nav a {
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 2.5rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s, transform 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ffd700;
+            transform: translateY(-2px);
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        #home {
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 12rem 2rem 6rem;
+            margin-top: 4rem;
             position: relative;
+            overflow: hidden;
         }
-
-        nav a::after {
+        #home::before {
             content: '';
             position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
+            top: 0;
             left: 0;
-            background-color: #2563eb;
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
             width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
         }
-
-        .hero-section {
-            background: linear-gradient(135deg, #3b82f6, #1e40af);
-            color: white;
-            border-radius: 1.5rem;
-            padding: 3rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1s ease-in-out;
+        #home > * {
+            position: relative;
+            z-index: 2;
         }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        #home h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease;
         }
-
-        .profile-img {
-            border: 4px solid white;
-            transition: transform 0.3s ease;
+        #home p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.3s;
+            animation-fill-mode: both;
         }
-
-        .profile-img:hover {
+        .btn {
+            display: inline-block;
+            background: #ffd700;
+            color: #1e3a8a;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s ease 0.6s;
+            animation-fill-mode: both;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+        .skills-progress {
+            background: #e5e7eb;
+            height: 12px;
+            border-radius: 6px;
+            margin: 0.8rem 0;
+            overflow: hidden;
+        }
+        .skills-bar {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            height: 100%;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+        .hobby-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            transition: transform 0.3s;
+        }
+        .hobby-item:hover img {
             transform: scale(1.05);
         }
-
-        .btn-primary {
-            background: #2563eb;
-            transition: all 0.3s ease;
+        .education-timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
         }
-
-        .btn-primary:hover {
-            background: #1e40af;
-            transform: translateY(-2px);
+        .timeline-item {
+            background: white;
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
         }
-
-        .btn-secondary {
-            border: 2px solid #2563eb;
-            color: #2563eb;
-            transition: all 0.3s ease;
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 25px;
+            width: 15px;
+            height: 15px;
+            background: #3b82f6;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 4px #1e3a8a;
         }
-
-        .btn-secondary:hover {
-            background: #2563eb;
+        .timeline-item:nth-child(even)::before {
+            background: #ffd700;
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .contact-form button {
+            background: #3b82f6;
             color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .contact-form button:hover {
+            background: #1e3a8a;
             transform: translateY(-2px);
         }
-
+        .contact-social {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .contact-social a {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: #3b82f6;
+            color: white;
+            text-align: center;
+            line-height: 60px;
+            border-radius: 50%;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .contact-social a:hover {
+            background: #1e3a8a;
+            transform: scale(1.1);
+        }
         footer {
-            background: #1f2937;
-            margin-top: auto;
+            background: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
         }
-
-        footer a {
-            transition: transform 0.3s ease;
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        footer a:hover {
-            transform: translateY(-2px);
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .hero-section {
-                padding: 1.5rem;
+            nav ul {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #1e3a8a;
+                flex-direction: column;
+                padding: 1rem 0;
+                display: none;
             }
-
-            h1 {
+            nav ul.active {
+                display: flex;
+            }
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            .hamburger {
+                display: block;
+            }
+            #home h1 {
                 font-size: 2.5rem;
             }
-
-            p {
+            #home p {
                 font-size: 1rem;
+            }
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 480px) {
+            #home {
+                padding: 8rem 1rem 4rem;
+            }
+            #home h1 {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
-
 <body>
-    <!-- Header -->
-    <header class="shadow-lg sticky top-0 z-50">
-        <nav class="container mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between">
-            <a href="index.html" class="text-3xl font-extrabold text-gray-900 mb-4 md:mb-0">Rajesh Ghimire</a>
-            <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 text-base font-medium">
-                <a href="index.html" class="text-gray-900 hover:text-blue-600 transition duration-300">Home</a>
-                <a href="https://www.facebook.com/rajesh.ghimire.710681" class="text-gray-900 hover:text-blue-600 transition duration-300" target="_blank">Facebook</a>
-                <a href="about.html" class="text-gray-900 hover:text-blue-600 transition duration-300">About</a>
-                <a href="skills.html" class="text-gray-900 hover:text-blue-600 transition duration-300">Skills</a>
-                <a href="loksewa.html" class="text-gray-900 hover:text-blue-600 transition duration-300">Loksewa</a>
-                <a href="contact.html" class="text-gray-900 hover:text-blue-600 transition duration-300">Contact</a>
-            </div>
+    <header>
+        <nav>
+            <div class="logo">Rajesh Ghimire</div>
+            <ul id="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#hobbies">Hobbies</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
         </nav>
     </header>
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 py-16 flex-grow">
-        <section class="hero-section text-center">
-            <div class="max-w-4xl mx-auto">
-                <div class="flex flex-col items-center mb-8">
-                    <img src="../rajesh.png" alt="Rajesh Ghimire Profile Picture"
-                        class="profile-img rounded-full w-40 h-40 md:w-48 md:h-48 object-cover shadow-xl mb-6">
-                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">Hi, I'm <span
-                            class="text-white">Rajesh Ghimire</span></h1>
-                    <p class="mt-4 text-lg md:text-xl text-gray-200">BBS Student, PSC Aspirant & Creative Enthusiast</p>
-                </div>
-                <div class="prose max-w-none text-left text-gray-200">
-                    <p class="text-base md:text-lg leading-relaxed">
-                        Welcome to my personal portfolio. I'm a 4th-year BBS student at Mid-Western University, driven by a passion for learning, creating, and serving society. As a PSC Nepal aspirant, I'm committed to civil service and public welfare. Explore my journey, skills, and interests in vlogging, blogging, AI, programming, and dancing.
-                    </p>
-                    <div class="flex justify-center mt-8 space-x-4">
-                        <a href="about.html"
-                            class="btn-primary px-6 py-3 text-white font-semibold rounded-full shadow-lg">Learn More About Me</a>
-                        <a href="contact.html"
-                            class="btn-secondary px-6 py-3 font-semibold rounded-full shadow-lg">Get in Touch</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+    <section id="home">
+        <h1>Hello, I'm Rajesh Ghimire</h1>
+        <p>A Passionate Learner & PSC Nepal Aspirant from Surkhet, Nepal</p>
+        <a href="#about" class="btn">Explore My Journey</a>
+    </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2025 Rajesh Ghimire. All rights reserved.</p>
-            <div class="flex justify-center space-x-6 mt-4">
-                <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i> Vlog</a>
-                <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-blogger"></i> Blog</a>
-                <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="https://www.facebook.com/rajesh.ghimire.710681" class="text-gray-400 hover:text-white"><i class="fab fa-facebook"></i> Facebook</a>
+    <section id="about">
+        <div class="container">
+            <div class="card">
+                <h2>About Me</h2>
+                <p>My name is Rajesh Ghimire, and I am originally from Surkhet, Nepal. I am currently pursuing my Bachelor’s degree, focusing on building my knowledge and skills for both academic and professional growth. I am a motivated learner with a strong interest in personal development, creativity, and social contribution. I believe in hard work, discipline, and consistency as the keys to success. Alongside my studies, I am also preparing for competitive exams to shape a secure and impactful future. I am passionate about learning new things, sharing knowledge, and growing step by step toward my goals.</p>
             </div>
         </div>
-    </footer>
-</body>
+    </section>
 
-                    </html>
+    <section id="skills">
+        <h2 style="text-align: center; margin-bottom: 2rem;">My Skills</h2>
+        <div class="container">
+            <div class="card">
+                <h3>Public Service Preparation</h3>
+                <div class="skills-progress"><div class="skills-bar" data-width="90%"></div></div>
+            </div>
+            <div class="card">
+                <h3>Content Creation</h3>
+                <div class="skills-progress"><div class="skills-bar" data-width="85%"></div></div>
+            </div>
+            <div class="card">
+                <h3>Web Development</h3>
+                <div class="skills-progress"><div class="skills-bar" data-width="80%"></div></div>
+            </div>
+            <div class="card">
+                <h3>Communication</h3>
+                <div class="skills-progress"><div class="skills-bar" data-width="75%"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hobbies">
+        <h2 style="text-align: center; margin-bottom: 2rem;">My Hobbies</h2>
+        <div class="container">
+            <div class="card hobby-item">
+                <img src="https://images.unsplash.com/photo-1516321310763-383e3b37a773?q=80&w=2070&auto=format&fit=crop" alt="Vlogging">
+                <h3>Vlogging</h3>
+                <p>Creating engaging content on YouTube to share knowledge and experiences.</p>
+            </div>
+            <div class="card hobby-item">
+                <img src="https://images.unsplash.com/photo-1516321310763-383e3b37a773?q=80&w=2070&auto=format&fit=crop" alt="Reading">
+                <h3>Reading</h3>
+                <p>Diving into books to expand my knowledge and inspire creativity.</p>
+            </div>
+            <div class="card hobby-item">
+                <img src="https://images.unsplash.com/photo-1516321310763-383e3b37a773?q=80&w=2070&auto=format&fit=crop" alt="Hiking">
+                <h3>Hiking</h3>
+                <p>Exploring the scenic trails and mountains of Nepal.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2 style="text-align: center; margin-bottom: 2rem;">Educational Journey</h2>
+        <div class="education-timeline">
+            <div class="timeline-item">
+                <h3>Bachelor's in Business Studies (BBS)</h3>
+                <p>2023 - Present | Mid-Western University, Surkhet, Nepal</p>
+                <p>Focusing on building a strong foundation for academic and professional growth.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Higher Secondary Education</h3>
+                <p>2020 - 2022 | National Examination Board, Nepal</p>
+                <p>Studied Science, laying the groundwork for my academic journey.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Secondary Education</h3>
+                <p>2018 - 2020 | Nepal</p>
+                <p>Developed a passion for learning and discipline.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 style="text-align: center; margin-bottom: 2rem;">Let's Connect</h2>
+        <div class="contact-form">
+            <form id="contactForm" onsubmit="return false;">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+        <div class="contact-social">
+            <a href="mailto:rajeshghimire662@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://wa.me/+9779765575787" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.facebook.com/rajesh.ghimire.710681" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://youtube.com/@rajeshloksewasarathi?si=rCm487vR-Wt13FbZ" title="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+        <div style="text-align: center; margin-top: 1rem;">
+            <p>Email: <a href="mailto:rajeshghimire662@gmail.com">rajeshghimire662@gmail.com</a></p>
+            <p>Phone: <a href="tel:+9779765575787">+977 9765575787</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Rajesh Ghimire. Crafted with <i class="fas fa-heart"></i> in Surkhet, Nepal.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animate skill bars on scroll
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bars = entry.target.querySelectorAll('.skills-bar');
+                    bars.forEach(bar => {
+                        bar.style.width = bar.dataset.width;
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        observer.observe(document.getElementById('skills'));
+
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Contact form submission (basic alert for demo)
+        document.getElementById('contactForm').addEventListener('submit', () => {
+            alert('Thank you for your message! I will get back to you soon.');
+        });
+
+        // Animate elements on scroll
+        const animateOnScroll = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = `${entry.target.dataset.delay || 0}s`;
+                    entry.target.style.opacity = 1;
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.card, .timeline-item, .contact-form').forEach((el, index) => {
+            el.dataset.delay = index * 0.2;
+            animateOnScroll.observe(el);
+        });
+    </script>
+</body>
+</html>
